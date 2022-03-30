@@ -23,17 +23,17 @@ def my_cook_buk():
 
 def get_shop_list_by_dishes(dishes, persons=int):
     menu = my_cook_buk()
-    shopping_list = {}
+    shop_list = {}
     for dish in dishes:
             for item in (menu[dish]):
                 items_list = dict([(item['ingredient_name'], {'measure': item['measure'], 'quantity': int(item['quantity'])*persons})])
-                if shopping_list.get(item['ingredient_name']):
-                    extra_item = (int(shopping_list[item['ingredient_name']]['quantity']) +
+                if shop_list.get(item['ingredient_name']):
+                    extra_item = (int(shop_list[item['ingredient_name']]['quantity']) +
                                   int(items_list[item['ingredient_name']]['quantity']))
-                    shopping_list[item['ingredient_name']]['quantity'] = extra_item
+                    shop_list[item['ingredient_name']]['quantity'] = extra_item
                 else:
-                    shopping_list.update(items_list)
-    pprint(shopping_list)
+                    shop_list.update(items_list)
+    pprint(shop_list)
     
 
-get_shop_list_by_dishes(['Омлет'], 10)
+get_shop_list_by_dishes(['Омлет'], 3)
